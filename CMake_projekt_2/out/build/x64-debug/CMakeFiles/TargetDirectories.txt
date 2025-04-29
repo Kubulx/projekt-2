@@ -1,0 +1,3 @@
+C:/Users/ASUS ExpertBook/source/repos/CMake_projekt_2/out/build/x64-debug/CMakeFiles/CMake_projekt_2.dir
+C:/Users/ASUS ExpertBook/source/repos/CMake_projekt_2/out/build/x64-debug/CMakeFiles/edit_cache.dir
+C:/Users/ASUS ExpertBook/source/repos/CMake_projekt_2/out/build/x64-debug/CMakeFiles/rebuild_cache.dir
