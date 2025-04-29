@@ -6,7 +6,6 @@
 
 using namespace std;
 
-// Funkcja sprawdzająca poprawność wierzchołka startowego
 int pobierz_poprawny_start(const vector<vector<int>>& graf, int numer_grafu) {
     int start;
     cout << "[Graf " << numer_grafu << "] Podaj wierzcholek startowy: ";
@@ -21,7 +20,6 @@ int pobierz_poprawny_start(const vector<vector<int>>& graf, int numer_grafu) {
     return start;
 }
 
-// Funkcja do inicjalizacji grafu na podstawie wejścia użytkownika
 vector<vector<int>> inicjalizuj_graf(int numer_grafu) {
     vector<vector<int>> graf;
     cout << "\n[Graf " << numer_grafu << "] Podaj krawedzie (np. 0 1). Wpisz -1 -1 aby zakonczyc:\n";
@@ -59,7 +57,6 @@ vector<vector<int>> inicjalizuj_graf(int numer_grafu) {
     return graf;
 }
 
-// Funkcja BFS z synchronizowanym wypisywaniem
 void bfs(int start, const vector<vector<int>>& graf, int numer_grafu, mutex& cout_mutex) {
     int n = graf.size();
     vector<bool> odwiedzony(n, false);
@@ -96,9 +93,7 @@ void bfs(int start, const vector<vector<int>>& graf, int numer_grafu, mutex& cou
     }
 }
 
-// Funkcja główna
 int main() {
-    // Inicjalizacja grafów i pobieranie danych
     vector<vector<int>> graf1 = inicjalizuj_graf(1);
     vector<vector<int>> graf2 = inicjalizuj_graf(2);
 
@@ -107,11 +102,9 @@ int main() {
 
     mutex cout_mutex;
 
-    // Uruchomienie wątków równolegle
     thread watek1(bfs, start_1, cref(graf1), 1, ref(cout_mutex));
     thread watek2(bfs, start_2, cref(graf2), 2, ref(cout_mutex));
 
-    // Czekamy na zakończenie wątków
     watek1.join();
     watek2.join();
 
